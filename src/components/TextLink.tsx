@@ -1,19 +1,21 @@
 import Link, { LinkProps } from 'next/link'
 
-const TextLink = (props: {
+type TextLinkProps = {
   aria?: string
   external?: boolean
   href: LinkProps['href']
   text: string
-}) => (
+}
+
+const TextLink = ({ aria, external, href, text }: TextLinkProps) => (
   <Link
-    aria-label={props.aria ?? props.text}
-    className="font-semibold text-blue-500 underline sm:hover:text-blue-700"
-    href={props.href}
-    rel={props.external ? 'noopener noreferrer' : undefined}
-    target={props.external ? '_blank' : undefined}
+    aria-label={aria ?? text}
+    className="font-semibold text-indigo-600 underline sm:hover:text-indigo-700"
+    href={href}
+    rel={external ? 'noopener noreferrer' : undefined}
+    target={external ? '_blank' : undefined}
   >
-    {props.text}
+    {text}
   </Link>
 )
 
